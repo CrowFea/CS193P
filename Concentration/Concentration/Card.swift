@@ -8,19 +8,19 @@
 
 import Foundation
 
-class Card{
-    var isFacedUp = false
-    var isMathced = false
-    var identifier : Int
+struct Card {
+    var isFaceUP = false
+    var isMatched = false
+    var identifier: Int
     
-    static identifierFactory = 0
+    static var identifierFactory = 0
     
     static func getUniqueIdentifier() -> Int {
         identifierFactory += 1
         return identifierFactory
     }
     
-    init(identifier:Int){
-        self.identifier = getUniqueIdentifier()
+    init(){
+        self.identifier = Card.getUniqueIdentifier()
     }
 }
