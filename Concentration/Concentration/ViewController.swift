@@ -10,26 +10,16 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var flipCount = 0{
-        didSet {
-            flipCountLabel.text = "Flips : \(flipCount)"
-        }
-    }
-   
     @IBOutlet var cardButtons: [UIButton]!
     
     lazy var game = Concentration(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
     
     
     @IBAction func touchCard(_ sender: UIButton) {
-        flipCount += 1
         if let cardNumber = cardButtons.firstIndex(of: sender) {
             game.chooseCard(at: cardNumber)
             updateViewFromModel()
-            //flipCard(withEmoji: emojiChoices[cardNumber], on: sender)
         }
-        //flipCard(withEmoji: "👻", on: sender)
-        
     }
     
     func updateViewFromModel(){
@@ -44,6 +34,7 @@ class ViewController: UIViewController {
                 button.backgroundColor = card.isMatched ? #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 0) : #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1)
             }
         }
+        flipCountLabel.text = "Flips : \(game.flipCount)"
     }
     
     var emojiChoices = ["🎃","👻","😈","💀","🙀","🍬","🍭","🍎"]
