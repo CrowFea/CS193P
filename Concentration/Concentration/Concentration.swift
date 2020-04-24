@@ -30,6 +30,8 @@ class Concentration {
                 }
                 cards[index].isFaceUP = true
                 indexOneAndOnlyFaceUpCard = nil
+            }else if let matchIndex = indexOneAndOnlyFaceUpCard, matchIndex == index {
+                flipCount -= 1
             }else {
                 //either no cards or two cards face up
                 for flipDownIndex in cards.indices {
