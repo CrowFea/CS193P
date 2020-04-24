@@ -11,7 +11,7 @@ import Foundation
 class Concentration {
     var cards = [Card]()
     var theme = Theme()
-    var curTheme = singleTheme(emojis: [""])
+    var curTheme = singleTheme(emojis: [""],cardColor: (0.0,0.0,0.0,0.0),bgColor: (0.0,0.0,0.0,0.0))
     
     var indexOneAndOnlyFaceUpCard : Int?
     

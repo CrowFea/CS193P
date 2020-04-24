@@ -22,6 +22,8 @@ class ViewController: UIViewController {
     }
     
     func updateViewFromModel(){
+        let color = UIColor.init(red: CGFloat(game.curTheme.cardColor.0), green: CGFloat(game.curTheme.cardColor.1), blue: CGFloat(game.curTheme.cardColor.2), alpha: CGFloat(game.curTheme.cardColor.3))
+        self.view.backgroundColor = UIColor.init(red: CGFloat(game.curTheme.bgColor.0), green: CGFloat(game.curTheme.bgColor.1), blue: CGFloat(game.curTheme.bgColor.2), alpha: CGFloat(game.curTheme.bgColor.3))
         for index in cardButtons.indices {
             let button = cardButtons[index]
             let card = game.cards[index]
@@ -30,7 +32,7 @@ class ViewController: UIViewController {
                 button.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
             }else {
                 button.setTitle("", for: UIControl.State.normal)
-                button.backgroundColor = card.isMatched ? #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 0) : #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1)
+                button.backgroundColor = card.isMatched ? #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 0) : color
             }
         }
         flipCountLabel.text = "Flips : \(game.flipCount)"
