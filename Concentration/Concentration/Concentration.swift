@@ -16,9 +16,9 @@ class Concentration {
     var indexOneAndOnlyFaceUpCard : Int?
     
     var flipCount = 0
+    var score = 0
     
     func chooseCard(at index: Int){
-        
         if !cards[index].isMatched {
             flipCount += 1
             if let matchIndex = indexOneAndOnlyFaceUpCard, matchIndex != index {
@@ -26,13 +26,19 @@ class Concentration {
                 if cards[matchIndex].identifier == cards[index].identifier {
                     cards[matchIndex].isMatched = true
                     cards[index].isMatched = true
+                    score += 2
                 }
                 cards[index].isFaceUP = true
                 indexOneAndOnlyFaceUpCard = nil
             }else {
                 //either no cards or two cards face up
-                for filpDownIndex in cards.indices {
-                    cards[filpDownIndex].isFaceUP = false
+                for flipDownIndex in cards.indices {
+                    if cards[flipDownIndex].firstFlip == false,cards[flipDownIndex].isFaceUP == true,cards[flipDownIndex].isMatched == false {
+                        score -= 1
+                    }else if cards[flipDownIndex].isFaceUP == true{
+                        cards[flipDownIndex].firstFlip = false
+                    }
+                    cards[flipDownIndex].isFaceUP = false
                 }
                 cards[index].isFaceUP = true
                 indexOneAndOnlyFaceUpCard = index

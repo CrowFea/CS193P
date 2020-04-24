@@ -22,6 +22,7 @@ class ViewController: UIViewController {
     }
     
     func updateViewFromModel(){
+        //change color of card ;bg ;newGame Button;
         let color = UIColor.init(red: CGFloat(game.curTheme.cardColor.0), green: CGFloat(game.curTheme.cardColor.1), blue: CGFloat(game.curTheme.cardColor.2), alpha: CGFloat(game.curTheme.cardColor.3))
         self.view.backgroundColor = UIColor.init(red: CGFloat(game.curTheme.bgColor.0), green: CGFloat(game.curTheme.bgColor.1), blue: CGFloat(game.curTheme.bgColor.2), alpha: CGFloat(game.curTheme.bgColor.3))
         newGameButton.backgroundColor = color
@@ -39,6 +40,8 @@ class ViewController: UIViewController {
         }
         flipCountLabel.text = "Flips : \(game.flipCount)"
         flipCountLabel.textColor = color
+        ScoreLabel.text = "Scores : \(game.score)"
+        ScoreLabel.textColor = color
     }
     
     lazy var emojiChoices = game.curTheme.emojis
@@ -65,5 +68,6 @@ class ViewController: UIViewController {
     }
     @IBOutlet weak var newGameButton: UIButton!
     
+    @IBOutlet weak var ScoreLabel: UILabel!
 }
 

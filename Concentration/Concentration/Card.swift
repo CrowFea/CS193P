@@ -12,6 +12,7 @@ struct Card {
     var isFaceUP = false
     var isMatched = false
     var identifier: Int
+    var firstFlip = true
     
     static var identifierFactory = 0
     
