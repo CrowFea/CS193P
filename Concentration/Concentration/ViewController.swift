@@ -24,6 +24,8 @@ class ViewController: UIViewController {
     func updateViewFromModel(){
         let color = UIColor.init(red: CGFloat(game.curTheme.cardColor.0), green: CGFloat(game.curTheme.cardColor.1), blue: CGFloat(game.curTheme.cardColor.2), alpha: CGFloat(game.curTheme.cardColor.3))
         self.view.backgroundColor = UIColor.init(red: CGFloat(game.curTheme.bgColor.0), green: CGFloat(game.curTheme.bgColor.1), blue: CGFloat(game.curTheme.bgColor.2), alpha: CGFloat(game.curTheme.bgColor.3))
+        newGameButton.backgroundColor = color
+        newGameButton.setTitleColor(self.view.backgroundColor, for: UIControl.State.normal)
         for index in cardButtons.indices {
             let button = cardButtons[index]
             let card = game.cards[index]
@@ -36,6 +38,7 @@ class ViewController: UIViewController {
             }
         }
         flipCountLabel.text = "Flips : \(game.flipCount)"
+        flipCountLabel.textColor = color
     }
     
     lazy var emojiChoices = game.curTheme.emojis
@@ -60,6 +63,7 @@ class ViewController: UIViewController {
         emoji = [Int:String]()
         updateViewFromModel()
     }
+    @IBOutlet weak var newGameButton: UIButton!
     
 }
 

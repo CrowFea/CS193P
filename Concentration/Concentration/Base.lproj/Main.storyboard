@@ -136,6 +136,7 @@
                     </view>
                     <connections>
                         <outlet property="flipCountLabel" destination="vim-OO-tFD" id="2Qw-KG-MXB"/>
+                        <outlet property="newGameButton" destination="iaJ-WV-sPq" id="Icc-EV-bnU"/>
                         <outletCollection property="cardButtons" destination="cQY-fL-dic" collectionClass="NSMutableArray" id="k4J-Hy-iYi"/>
                         <outletCollection property="cardButtons" destination="5fM-2z-FH6" collectionClass="NSMutableArray" id="UFk-tN-YPr"/>
                         <outletCollection property="cardButtons" destination="xbk-pf-erJ" collectionClass="NSMutableArray" id="Fve-dm-966"/>
