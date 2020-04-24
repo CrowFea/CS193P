@@ -9,14 +9,14 @@
 import Foundation
 
 class Concentration {
-    var cards = [Card]()
-    var theme = Theme()
+    private(set) var cards = [Card]()
+    private(set) var theme = Theme()
     var curTheme = singleTheme(emojis: [""],cardColor: (0.0,0.0,0.0,0.0),bgColor: (0.0,0.0,0.0,0.0))
     
     var indexOneAndOnlyFaceUpCard : Int?
     
-    var flipCount = 0
-    var score = 0
+    private(set) var flipCount = 0
+    private(set) var score = 0
     
     func chooseCard(at index: Int){
         if !cards[index].isMatched {
