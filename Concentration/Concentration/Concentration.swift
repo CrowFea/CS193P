@@ -10,6 +10,8 @@ import Foundation
 
 class Concentration {
     var cards = [Card]()
+    var theme = Theme()
+    var curTheme = singleTheme(emojis: [""])
     
     var indexOneAndOnlyFaceUpCard : Int?
     
@@ -43,6 +45,8 @@ class Concentration {
             let card = Card()
             cards += [card,card]
         }
+        let themeChoice = Int(arc4random()) % theme.ThemeTitle.count
+        curTheme = theme.ThemeDictionary[theme.ThemeTitle[themeChoice]] ?? curTheme
         //TODO:shuffle the cards
         for i in 1..<cards.count {
             let index = Int(arc4random()) % i

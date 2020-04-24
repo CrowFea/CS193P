@@ -36,7 +36,7 @@ class ViewController: UIViewController {
         flipCountLabel.text = "Flips : \(game.flipCount)"
     }
     
-    var emojiChoices = ["🎃","👻","😈","💀","🙀","🍬","🍭","🍎"]
+    lazy var emojiChoices = game.curTheme.emojis
     
     var emoji = [Int:String]()
     
@@ -54,6 +54,8 @@ class ViewController: UIViewController {
     
     @IBAction func newGame(_ sender: UIButton) {
         game = Concentration(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
+        emojiChoices = game.curTheme.emojis
+        emoji = [Int:String]()
         updateViewFromModel()
     }
     
