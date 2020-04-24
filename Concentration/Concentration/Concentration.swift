@@ -40,5 +40,11 @@ class Concentration {
             cards += [card,card]
         }
         //TODO:shuffle the cards
+        for i in 1..<cards.count {
+            let index = Int(arc4random()) % i
+            if index != i {
+                cards.swapAt(i, index)
+            }
+        }
     }
 }
